@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "npm install --force && npm run build",
   "outputDirectory": "dist/public",
-  "installCommand": "npm install --omit=optional",
-  "framework": "vite",
+  "installCommand": "npm install --no-optional",
+  "framework": null,
   "routes": [
     { "handle": "filesystem" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
