@@ -1,0 +1,14 @@
+services:
+  # Main web service - handles both API and static files
+  - type: web
+    name: emotionlens
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+    healthCheckPath: /api/health # You might need to add this endpoint
+    autoDeploy: true
